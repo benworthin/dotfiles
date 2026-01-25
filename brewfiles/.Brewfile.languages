@@ -1,0 +1,37 @@
+# Programming Languages and their tools
+
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+
+# Database migrations CLI tool
+brew "golang-migrate"
+
+# Python version management
+brew "pyenv"
+
+# Pyenv plugin to manage virtualenv
+brew "pyenv-virtualenv"
+
+# Extremely fast Python linter, written in Rust
+brew "ruff"
+
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+
+# Manage your Java environment
+brew "jenv"
+
+# Development kit for the Java programming language (JDK 21)
+brew "openjdk@21"
+
+# Java-based project management
+brew "maven"
+
+# GitHub command-line tool
+brew "gh"
+
+# Simple terminal UI for git commands
+brew "lazygit"
+
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"

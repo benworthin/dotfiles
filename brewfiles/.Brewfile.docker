@@ -1,0 +1,22 @@
+# Docker and container tools
+
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima"
+
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+
+# Docker CLI plugin for extended build capabilities with BuildKit
+brew "docker-buildx"
+
+# Isolated development environments using Docker
+brew "docker-compose"
+
+# Platform keystore credential helper for Docker
+brew "docker-credential-helper"
+
+# Lazier way to manage everything docker
+brew "lazydocker"
+
+# Kubernetes command-line interface
+brew "kubernetes-cli"
