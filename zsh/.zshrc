@@ -70,6 +70,9 @@ eval $(thefuck --alias oops)
 eval "$(zoxide init zsh)"
 alias cd='z'
 
+# ---- Aliases for LazyGit and LazyDocker ----
+alias lzd="lazydocker"
+alias lzg="lazygit"
 
 # Source .zshrc.local if it exists
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
