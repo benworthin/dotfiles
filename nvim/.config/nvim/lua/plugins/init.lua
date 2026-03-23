@@ -23,7 +23,12 @@ require("lazy").setup({
   require("plugins.telescope"),
   require("plugins.neo-tree"),
   require("plugins.git"),
+  require("plugins.lazygit"),
+  require("plugins.toggleterm"),
   require("plugins.treesitter"),
+  require("plugins.lsp"),
+  require("plugins.go"),
+  require("plugins.completion"),
   require("plugins.ui"),
   require("plugins.editor"),
 }, {

@@ -9,3 +9,6 @@ vim.api.nvim_create_user_command("Minify", [[:%!jq -c]], {})
 
 -- Pretty: Pipe the whole file through jq for pretty output
 vim.api.nvim_create_user_command("Pretty", [[:%!jq]], {})
+
+-- PendingItems: Replace ", " with new lines and filter lines not containing "=0"
+vim.api.nvim_create_user_command("PendingItems", [[:%s/, /\r/g | %! grep -v "=0"]], {})
