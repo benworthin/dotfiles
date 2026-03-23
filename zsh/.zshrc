@@ -1,7 +1,7 @@
 # ----- oh my zsh config -----
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="dracula/dracula"
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # ----- FZF -----
@@ -53,7 +53,8 @@ export BAT_THEME=Dracula
 alias cat="bat"
 
 # ----- Eza (better ls) ------
-alias ls='eza --color=always --long --git --no-filesize --icons=always --no-user --no-permissions'
+alias ls='eza --color=always --long --git -rsold --icons=always --no-user --no-permissions'
+# alias ls='eza --color=always --long --git --no-filesize --icons=always --no-user --no-permissions'
 
 function lst() { 
 	eza --color=always --long --git --no-filesize --icons=always --no-user --no-permissions --tree --level="$1";
@@ -73,6 +74,12 @@ alias cd='z'
 # ---- Aliases for LazyGit and LazyDocker ----
 alias lzd="lazydocker"
 alias lzg="lazygit"
+
+# Colima
+alias rcolima="colima start --arch aarch64 --vm-type vz --vz-rosetta"
+
+# ---- Alias for Zed ----
+alias zed="open -a Zed"
 
 # Source .zshrc.local if it exists
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
