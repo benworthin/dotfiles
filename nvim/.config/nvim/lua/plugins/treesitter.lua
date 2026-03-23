@@ -24,13 +24,14 @@ return {
 			'vimdoc',
 		})
 
-		-- Enable treesitter highlighting for all filetypes
+		-- Enable treesitter highlighting for all filetypes (only if parser exists)
 		vim.api.nvim_create_autocmd('FileType', {
 			pattern = '*',
 			callback = function()
 				local buf = vim.api.nvim_get_current_buf()
 				if vim.bo[buf].buftype == '' then
-					vim.treesitter.start()
+					-- Only start treesitter if a parser is available for this filetype
+					pcall(vim.treesitter.start)
 				end
 			end,
 		})
