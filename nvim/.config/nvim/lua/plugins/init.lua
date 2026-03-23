@@ -26,6 +26,7 @@ require("lazy").setup({
   require("plugins.lazygit"),
   require("plugins.toggleterm"),
   require("plugins.treesitter"),
+  require("plugins.treesitter-textobjects"),
   require("plugins.lsp"),
   require("plugins.go"),
   require("plugins.completion"),

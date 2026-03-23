@@ -13,6 +13,7 @@ return {
 			-- Disable go.nvim's LSP config (we handle it in lsp.lua)
 			lsp_cfg = false,
 			lsp_keymaps = false, -- We already set up LSP keymaps in lsp.lua
+			textobjects = false, -- Use nvim-treesitter-textobjects plugin instead
 
 			-- LSP settings (gopls)
 			lsp_inlay_hints = {
