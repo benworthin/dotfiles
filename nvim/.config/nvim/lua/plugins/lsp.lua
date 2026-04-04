@@ -29,32 +29,32 @@ return {
 					end
 
 					-- Jump to definition
-					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+					map("<leader>ld", require("telescope.builtin").lsp_definitions, "[D]efinition")
 
 					-- Find references
-					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+					map("<leader>lr", require("telescope.builtin").lsp_references, "[R]eferences")
 
 					-- Jump to implementation
-					map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+					map("<leader>li", require("telescope.builtin").lsp_implementations, "[I]mplementation")
 
 					-- Jump to type definition
-					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+					map("<leader>lt", require("telescope.builtin").lsp_type_definitions, "Type definition")
 
 					-- Fuzzy find symbols in document
-					map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+					map("<leader>ls", require("telescope.builtin").lsp_document_symbols, "Document [S]ymbols")
 
 					-- Fuzzy find symbols in workspace
 					map(
-						"<leader>ws",
+						"<leader>lw",
 						require("telescope.builtin").lsp_dynamic_workspace_symbols,
-						"[W]orkspace [S]ymbols"
+						"[W]orkspace symbols"
 					)
 
 					-- Rename variable
-					map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+					map("<leader>ln", vim.lsp.buf.rename, "Rename")
 
 					-- Code action
-					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+					map("<leader>la", vim.lsp.buf.code_action, "Code [A]ction")
 
 					-- Show hover documentation
 					map("K", vim.lsp.buf.hover, "Hover Documentation")
@@ -89,17 +89,17 @@ return {
 
 					-- Toggle inlay hints (if supported)
 					if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-						map("<leader>th", function()
+						map("<leader>lh", function()
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-						end, "[T]oggle Inlay [H]ints")
+						end, "Toggle inlay [H]ints")
 					end
 
 					-- Toggle auto-format on save
-					map("<leader>tf", function()
+					map("<leader>lf", function()
 						vim.g.auto_format_on_save = not vim.g.auto_format_on_save
 						local status = vim.g.auto_format_on_save and "enabled" or "disabled"
 						vim.notify("Auto-format on save " .. status, vim.log.levels.INFO)
-					end, "[T]oggle Auto-[F]ormat")
+					end, "Toggle auto-[F]ormat")
 				end,
 			})
 
@@ -115,6 +115,11 @@ return {
 
 					-- Skip Go files (handled by go.nvim)
 					if vim.bo[event.buf].filetype == "go" then
+						return
+					end
+
+					-- Skip SQL files (sqls formatter has bugs that remove whitespace)
+					if vim.bo[event.buf].filetype == "sql" then
 						return
 					end
 

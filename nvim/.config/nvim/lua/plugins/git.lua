@@ -1,9 +1,11 @@
 return {
 	{
 		"lewis6991/gitsigns.nvim",
+		event = { "BufReadPre", "BufNewFile" },
 		keys = {
 			{ "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "[G]it [B]lame toggle" },
 			{ "<leader>gB", "<cmd>Gitsigns blame_line<CR>", desc = "[G]it [B]lame line detail" },
+			{ "<leader>gbb", "<cmd>Gitsigns blame<CR>", desc = "[G]it [B]lame buffer" },
 		},
 		opts = {
 			signs = {
@@ -29,6 +31,7 @@ return {
 		keys = {
 			{ "<leader>gd", "<cmd>DiffviewOpen<CR>", desc = "[G]it [D]iff view (all changes)" },
 			{ "<leader>gh", "<cmd>DiffviewFileHistory<CR>", desc = "[G]it file [H]istory" },
+			{ "<leader>gp", "<cmd>DiffviewOpen origin/main...HEAD<CR>", desc = "[G]it [P]R diff (vs main)" },
 		},
 		opts = {
 			view = {
@@ -49,11 +52,8 @@ return {
 					flatten_dirs = true,
 					folder_statuses = "only_folded",
 				},
-				width = 35,
-				height = 10,
-				position = "left",
 				win_config = {
-					position = "topleft",
+					position = "left",
 					height = 10,
 					width = 35,
 				},

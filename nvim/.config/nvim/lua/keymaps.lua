@@ -28,3 +28,6 @@ vim.keymap.set("n", "<leader>tj", "<cmd>tabprevious<CR>", { desc = "[T]ab [J]pre
 vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<CR>", { desc = "[T]ab [C]lose" })
 vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "[T]ab [N]ew" })
 vim.keymap.set("n", "<leader>to", "<cmd>tabonly<CR>", { desc = "[T]ab [O]nly (close all others)" })
+
+-- Fold function under cursor
+vim.keymap.set("n", "<leader>zf", "vafzf", { noremap = true, silent = true, desc = "Fold function" })

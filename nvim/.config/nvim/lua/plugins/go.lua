@@ -54,25 +54,25 @@ return {
 		end
 
 		-- Format and organize imports
-		map("n", "<leader>gf", "<cmd>GoFmt<cr>", "[F]ormat")
-		map("n", "<leader>gi", "<cmd>GoImport<cr>", "Organize [I]mports")
+		map("n", "<leader>Gf", "<cmd>GoFmt<cr>", "[F]ormat")
+		map("n", "<leader>Gi", "<cmd>GoImport<cr>", "Organize [I]mports")
 
 		-- Test commands
-		map("n", "<leader>gt", "<cmd>GoTest<cr>", "Run [T]ests")
-		map("n", "<leader>gT", "<cmd>GoTestFunc<cr>", "Run [T]est Function")
-		map("n", "<leader>gc", "<cmd>GoCoverage<cr>", "Show [C]overage")
+		map("n", "<leader>Gt", "<cmd>GoTest<cr>", "Run [T]ests")
+		map("n", "<leader>GT", "<cmd>GoTestFunc<cr>", "Run [T]est Function")
+		map("n", "<leader>Gc", "<cmd>GoCoverage<cr>", "Show [C]overage")
 
 		-- Code generation
-		map("n", "<leader>ge", "<cmd>GoIfErr<cr>", "Generate if [e]rr")
-		map("n", "<leader>gs", "<cmd>GoFillStruct<cr>", "Fill [S]truct")
-		map("n", "<leader>gI", "<cmd>GoImpl<cr>", "[I]mplement Interface")
+		map("n", "<leader>Ge", "<cmd>GoIfErr<cr>", "Generate if [e]rr")
+		map("n", "<leader>Gs", "<cmd>GoFillStruct<cr>", "Fill [S]truct")
+		map("n", "<leader>GI", "<cmd>GoImpl<cr>", "[I]mplement Interface")
 
 		-- Struct tags
-		map("n", "<leader>ga", "<cmd>GoAddTag<cr>", "[A]dd Tags")
-		map("n", "<leader>gr", "<cmd>GoRmTag<cr>", "[R]emove Tags")
+		map("n", "<leader>Ga", "<cmd>GoAddTag<cr>", "[A]dd Tags")
+		map("n", "<leader>Gr", "<cmd>GoRmTag<cr>", "[R]emove Tags")
 
 		-- Module commands
-		map("n", "<leader>gm", "<cmd>GoModTidy<cr>", "Go [M]od Tidy")
+		map("n", "<leader>Gm", "<cmd>GoModTidy<cr>", "Go [M]od Tidy")
 
 		-- Auto-format on save for Go files
 		local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
