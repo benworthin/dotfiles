@@ -44,11 +44,7 @@ return {
 					map("<leader>ls", require("telescope.builtin").lsp_document_symbols, "Document [S]ymbols")
 
 					-- Fuzzy find symbols in workspace
-					map(
-						"<leader>lw",
-						require("telescope.builtin").lsp_dynamic_workspace_symbols,
-						"[W]orkspace symbols"
-					)
+					map("<leader>lw", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace symbols")
 
 					-- Rename variable
 					map("<leader>ln", vim.lsp.buf.rename, "Rename")
@@ -245,6 +241,12 @@ return {
 				-- CSS
 				cssls = {},
 
+				-- HTMX
+				htmx = {},
+
+				-- Tailwind CSS
+				tailwindcss = {},
+
 				-- Lua (for your Neovim config - neodev already configured this)
 				lua_ls = {
 					settings = {
@@ -271,6 +273,8 @@ return {
 					"ts_ls",
 					"html",
 					"cssls",
+					-- "htmx",
+					"tailwindcss",
 					"lua_ls",
 				},
 			})

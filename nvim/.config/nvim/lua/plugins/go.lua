@@ -13,6 +13,7 @@ return {
 			-- Disable go.nvim's LSP config (we handle it in lsp.lua)
 			lsp_cfg = false,
 			lsp_keymaps = false, -- We already set up LSP keymaps in lsp.lua
+			lsp_codelens = false, -- codelens broken in go.nvim w/ nvim 0.11 (ray-x/go.nvim#7542616)
 			textobjects = false, -- Use nvim-treesitter-textobjects plugin instead
 
 			-- LSP settings (gopls)

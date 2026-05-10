@@ -20,4 +20,8 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = { signs = true },
   },
+  {
+    "tpope/vim-fugitive",
+    cmd = { "G", "Git", "Gread", "Gwrite", "Gdiffsplit", "Gblame", "GMove", "GRename", "GDelete" },
+  },
 }
