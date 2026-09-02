@@ -29,6 +29,7 @@ require("lazy").setup({
   require("plugins.treesitter-textobjects"),
   require("plugins.lsp"),
   require("plugins.go"),
+  require("plugins.rust"),
   require("plugins.completion"),
   require("plugins.ui"),
   require("plugins.editor"),

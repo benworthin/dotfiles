@@ -19,6 +19,7 @@ return {
 			'markdown_inline',
 			'python',
 			'query',
+			'rust',
 			'typescript',
 			'vim',
 			'vimdoc',
