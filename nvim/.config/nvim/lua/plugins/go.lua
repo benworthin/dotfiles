@@ -36,7 +36,7 @@ return {
 
 			-- Test settings
 			run_in_floaterm = false, -- Run tests in buffer, not floating terminal
-			test_runner = "go", -- Use 'go test' (can also be 'richgo', 'ginkgo')
+			test_runner = "go",   -- Use 'go test' (can also be 'richgo', 'ginkgo')
 
 			-- Auto-format on save
 			-- We'll handle this in Step 6 for all languages

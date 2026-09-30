@@ -30,6 +30,7 @@ require("lazy").setup({
   require("plugins.lsp"),
   require("plugins.go"),
   require("plugins.rust"),
+  require("plugins.java"),
   require("plugins.completion"),
   require("plugins.ui"),
   require("plugins.editor"),

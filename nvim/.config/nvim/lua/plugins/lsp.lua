@@ -229,8 +229,7 @@ return {
 				-- JSON
 				jsonls = {},
 
-				-- Java
-				jdtls = {},
+				-- Java is handled by nvim-jdtls via ftplugin/java.lua (see plugins/java.lua)
 
 				-- JavaScript/TypeScript
 				ts_ls = {},
@@ -281,6 +280,12 @@ return {
 
 			-- Setup mason-lspconfig (bridge between mason and lspconfig)
 			require("mason-lspconfig").setup({
+				-- mason-lspconfig auto-enables every installed server via vim.lsp.enable(),
+				-- independent of the handlers table below. jdtls must be excluded here too,
+				-- or you get a second, duplicate jdtls instance started by that path.
+				automatic_enable = {
+					exclude = { "jdtls" },
+				},
 				handlers = {
 					-- Default handler for all servers
 					function(server_name)
@@ -291,6 +296,10 @@ return {
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 						require("lspconfig")[server_name].setup(server)
 					end,
+					-- jdtls needs a per-project --data dir and its own startup lifecycle,
+					-- which the generic handler above can't provide. nvim-jdtls handles
+					-- it instead via ftplugin/java.lua, so skip it here.
+					jdtls = function() end,
 				},
 			})
 		end,
