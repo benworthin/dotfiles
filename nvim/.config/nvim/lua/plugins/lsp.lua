@@ -278,28 +278,16 @@ return {
 				},
 			})
 
-			-- Setup mason-lspconfig (bridge between mason and lspconfig)
+			-- Configure servers before mason-lspconfig enables installed ones
+			for server_name, server in pairs(servers) do
+				server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+				vim.lsp.config(server_name, server)
+			end
+
 			require("mason-lspconfig").setup({
-				-- mason-lspconfig auto-enables every installed server via vim.lsp.enable(),
-				-- independent of the handlers table below. jdtls must be excluded here too,
-				-- or you get a second, duplicate jdtls instance started by that path.
+				-- Java is started by nvim-jdtls via ftplugin/java.lua.
 				automatic_enable = {
 					exclude = { "jdtls" },
-				},
-				handlers = {
-					-- Default handler for all servers
-					function(server_name)
-						local server = servers[server_name] or {}
-						-- This handles overriding only values explicitly passed
-						-- by the server configuration above. Useful for disabling
-						-- certain features of an LSP (e.g., turning off formatting)
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
-					end,
-					-- jdtls needs a per-project --data dir and its own startup lifecycle,
-					-- which the generic handler above can't provide. nvim-jdtls handles
-					-- it instead via ftplugin/java.lua, so skip it here.
-					jdtls = function() end,
 				},
 			})
 		end,
